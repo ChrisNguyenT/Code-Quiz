@@ -73,3 +73,149 @@ body {
         opacity: 1;
     }
 }
+
+/* Styles the quiz and highscore pages */
+
+#container, #container2 {
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 2.5rem
+}
+
+#questions {
+    margin: 20px;
+}
+
+#remainingTime {
+    position: absolute;
+    top: 10%;
+    left: 55%;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+li {
+    background-color: rgba(49, 124, 209, 0.281);
+    border-radius: 2rem;
+    margin-top: 30px;
+    padding: 5px 15px;
+    width: 90%;
+    font-size: 18px;
+    color: white;
+    list-style-type: decimal;
+}
+
+li:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+/* Stylizes the bottom text for correct/wrong answer */
+
+#divIndex {
+    margin-top: 20px;
+    border-top: 3px solid rgba(49, 124, 209, 0.397);
+    position: absolute;
+    bottom: 10%;
+    text-align: center;
+    left: 10%;
+}
+
+/* Styles the View Highscores */
+
+a:link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+/* Button styles */
+
+#countdown {
+    background-color: rgb(2, 118, 250, 0.267);
+    position: absolute;
+    left: 35%;
+    bottom: 10%;
+    padding: 15px 32px;
+    font-size: 20px;
+    color: white;
+}
+
+#Submit {
+    position: absolute;
+    background-color: rgba(241, 83, 152, 0.404);
+    top: 60%;
+    left: 37%;
+    padding: 15px 32px;
+    font-size: 20px;
+    color: white;
+}
+
+#back {
+    background-color: rgba(2, 118, 250, 0.267);
+    position: absolute;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    top: 85%;
+    left: 20%;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+#clear {
+    background-color: rgba(241, 83, 152, 0.404);
+    position: absolute;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    top: 85%;
+    right: 15%;
+    text-align: center;
+}
+
+button {
+    border-radius: 10px;
+}
+
+button:hover {
+    opacity: .75;
+    cursor: pointer;
+}
+
+/* Styles the box for user input */
+
+label {
+    font-size: 20px;
+    left: 26%;
+    position: absolute;
+    top: 30%;
+}
+
+input {
+    position: absolute;
+    left: 24%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 50%;
+    text-align: center;
+    border: 2px solid rgba(50, 118, 173, 0.945);
+    height: 30px;
+    font-size: 25px;
+}
+

@@ -129,4 +129,52 @@ function finished() {
         finishContent.textContent = 'Your final score is: ' + timeLeft + ' lol';
     }
 
-    
+    // These create the label, input, and submit at the end of the quiz
+    var newLabel = document.createElement('label');
+    newLabel.textContent = 'Please enter your initials: ';
+    questions.appendChild(newLabel);
+
+    var userInput = document.createElement('input');
+    userInput.textContent = '';
+    questions.appendChild(userInput);
+
+    var userSubmit = document.createElement('button');
+    userSubmit.setAttribute('id', 'Submit');
+    userSubmit.textContent = 'Submit';
+    questions.appendChild(userSubmit);
+
+    // Function for user input and local storage/retrieval
+    userSubmit.addEventListener('click', function () {
+        var initials = userInput.value;
+        // Alerts user to input a valid entry if left blank or exceeds the 5 character maximum
+        if (initials.length <= 0 || initials.length > 5) {
+            window.alert('Please enter your initials! (Up to five characters)');
+            return false;
+        } 
+        // Puts the initials and score in an array
+        else {
+            var userScore = {
+                initials: initials.toUpperCase(),
+                score: timeLeft
+            }
+            // Retreives the local highscores
+            var savedScore = localStorage.getItem('savedScore');
+            // Clears array if there are no local highscores
+            if (savedScore === null) {
+                savedScore = [];
+            // Converts the string into an object
+            } else {
+                savedScore = JSON.parse(savedScore);
+            }
+            // Adds the user's score to the end of the existing array
+            savedScore.push(userScore);
+            // Converts the saved scores to a string
+            var newScore = JSON.stringify(savedScore);
+            localStorage.setItem('savedScore', newScore);
+            // Retrieves from the local storage
+            var savedScore = localStorage.getItem('savedScore');
+            savedScore = JSON.parse(savedScore);
+        }
+    });
+}
+
