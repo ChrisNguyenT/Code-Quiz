@@ -174,7 +174,62 @@ function finished() {
             // Retrieves from the local storage
             var savedScore = localStorage.getItem('savedScore');
             savedScore = JSON.parse(savedScore);
+            // Creates and displays a list of the highscores
+            if (savedScore !== null) {
+                for (var i = 0; i < savedScore.length; i++) {
+                    var newLi = document.createElement('li');
+                    newLi.textContent = savedScore[i].initials + ' // ' + savedScore[i].score + ' points';
+                    highScoreList.appendChild(newLi);
+                    // Hides the highscore link at the top
+                    document.getElementById('highscores').style.display = 'none';
+                }
+            }
+            // If more than 5 scores are saved, the local storage is cleared
+            if (savedScore.length > 5) {
+                window.alert('Memory Overload! Clearing Highscores...');
+                localStorage.clear();
+                location.reload();
+            }
+            // Shows the Highscores page
+            return show('container2', 'container');
         }
     });
 }
 
+// Declared variables for the Highscores page
+var highscores = document.querySelector('#highscores');
+var clear = document.querySelector('#clear');
+var back = document.querySelector('#back');
+
+// This function opens the Highscores page when the link is clicked
+highscores.addEventListener('click', function () {
+    var savedScore = localStorage.getItem('savedScore');
+    savedScore = JSON.parse(savedScore);
+    document.getElementById('highscores').style.display = 'none';
+    if (savedScore !== null) {
+        for (var i = 0; i < savedScore.length; i++) {
+            var createLi = document.createElement('li');
+            createLi.textContent = savedScore[i].initials + ' // ' + savedScore[i].score + ' points';
+            highScoreList.appendChild(createLi);
+        }
+    }
+    return show('container2', 'container');
+});
+
+// This function clears the Highscores page
+clear.addEventListener('click', function () {
+    localStorage.clear();
+    location.reload();
+});
+
+// This function sends the user back to the main page
+back.addEventListener('click', function () {
+    window.location.replace('./index.html');
+});
+
+// This function hides and shows the quiz page and the Highscores page
+function show(shown, hidden) {
+    document.getElementById(shown).style.display = 'block';
+    document.getElementById(hidden).style.display = 'none';
+    return false;
+}

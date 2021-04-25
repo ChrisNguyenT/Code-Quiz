@@ -219,3 +219,32 @@ input {
     font-size: 25px;
 }
 
+/* For displays at 786px */
+
+@media screen and (max-width: 786px) {
+    body {
+        max-width: 786px;
+    }
+    main {
+        position: absolute;
+        left: 20%;
+    }
+    a {
+        margin-left: 20%;
+    }
+}
+
+/* For displays at 640px */
+
+@media screen and (max-width: 640px) {
+    body {
+        min-width: 640px;
+    }
+    main {
+        position: absolute;
+        left: 10%;
+    }
+    a {
+        margin-left: 10%;
+    }
+}
